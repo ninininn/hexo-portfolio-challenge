@@ -1,6 +1,11 @@
 // rwd mixins ====================================================
-@mixin smDesktop{
+@mixin lgDesktop{
     @media(max-width:1440px){
+        @content
+    }
+};
+@mixin smDesktop{
+    @media(max-width:1200px){
         @content
     }
 };
@@ -21,7 +26,7 @@
         @content
     }
 };
-@mixin smDevice{
+@mixin miniDevice{
     @media(max-width:320px){
         @content
     }
@@ -51,18 +56,36 @@ h2{
         height: 6px;
         background-image: url(./media/decos/title\ deco-right-lg.png);
     }
+    @include smDesktop(){
+        padding: 80px 0 ;
+    }
+    @include pad{
+        padding: 40px 0 ;
+    }
+    @include landscapeMobile{
+        font-size:$h3;
+    }
 }
+
 //nav-bar ==========================================================
 
 nav{
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 32px 312px;
+    padding: 32px 0;
     justify-content: space-around;
+    border-bottom: 1px solid $primary200;
+    @include landscapeMobile{
+        justify-content: space-between;
+        
+    }
     ul{
         display: flex;
         gap: 40px;
+        @include landscapeMobile{
+            display: none;
+        }
     }
     .nav-li.active{
         font-weight: 700;
@@ -75,9 +98,28 @@ nav{
         background-position: center;
         position: absolute;
         left: 312px;
+        @include smDesktop{
+            left:200px;
+        }
+        @include pad{
+            left:80px;
+        }
+        @include landscapeMobile{
+            position: static;
+        }
     }
-}
-
+    .hamburger{
+        display: none;
+        @include landscapeMobile{
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-image: url(./media/decos/google\ material\ icon-2.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+};
 
 
 // hero-part ===================================================
@@ -85,12 +127,18 @@ nav{
     display: flex;
     align-items: center;
     height: 800px;
-    justify-content:flex-end;
+    justify-content:space-between;
     gap:24px ;
+    @include landscapeMobile{
+        flex-direction: column-reverse;
+        
+    }
     .hero-content{
+        padding-left:312px;
         display: flex;
         flex-direction: column;
         gap: 24px;
+        
         .fs-6{
             color: $primary400;
         }
@@ -111,7 +159,16 @@ nav{
                 z-index: -1;
             }
         }
-        
+        @include lgDesktop{
+            padding-left: 112px;
+        }
+        @include smDesktop{
+            padding-left: 82px;
+        }
+        @include landscapeMobile{
+            text-align: center;
+            padding: 0;
+        }
     }
     .hero-img{
         width: 60%;
@@ -119,6 +176,10 @@ nav{
         background-image: url(./media/hero-lg.png);
         background-repeat: no-repeat;
         background-position: center;
+        @include landscapeMobile{
+            width: 100%;
+            height:50%;
+        }
     }
 }
 
@@ -144,18 +205,49 @@ nav{
 // works-part=======================================================
 
 #works{
-    .container{
+    .container{    
         height: 800px;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        @include smDesktop{
+            height: 680px;
+        }
+        @include landscapeMobile{
+            width: 100%;
+            flex-direction: column;
+        }
         &:nth-child(2){
+            padding: 0 3rem;
             background-image: url(./media/homepage-work1-bg.png);
+            @include landscapeMobile{
+                padding: 0;
+            }
+            .product{
+                align-self: flex-end;
+                @include lgDesktop{
+                    height: 75%;
+                }
+                @include pad{
+                    height: 65%;
+                }
+                @include landscapeMobile{
+                    height: 50%;
+                }
+            }
         }
         &:nth-child(3){
+            padding: 0 3rem;
             background-image: url(./media/homepage-work2-lg.png);
             flex-direction: row-reverse;
             backdrop-filter: brightness(50%);
+            @include lgDesktop{
+                justify-content: space-between;
+            }
+            @include landscapeMobile{
+                padding: 0;
+                flex-direction: column;
+            }
             &::after { //遮罩
                 position: absolute;
                 left: 0;
@@ -163,25 +255,37 @@ nav{
                 width: 50%;height: 100%;
                 background-color: rgba(#000,.5);
                 z-index: -1;
+                @include smDesktop{
+                    width: 60%
+                }
+                @include landscapeMobile{
+                    display: none;
+                }
               }
         }
         &:nth-child(4){
+            padding: 0 3rem;
             backdrop-filter: brightness(50%);
             background-image:  url(./media/homepage-work3-bg.png);
+            @include landscapeMobile{
+                padding: 0;
+            }
             &::after {//遮罩
                 position: absolute;
                 content: '';
                 width: 100%;height: 100%;
                 background-color: rgba(#000,.5);
                 z-index: -1;
-              }
-        }
-        
-    }
-    .product{
-        :first-child{
-            align-self: flex-end;
-        }
+            }
+            .product{
+                @include smDesktop{
+                    height:50%;
+                }
+                @include smDesktop{
+                    height:40%;
+                }
+            }
+        }    
     }
  }
 
@@ -193,7 +297,26 @@ nav{
     flex-direction: column;
     padding: 40px 24px;
     backdrop-filter: blur(5px);
-    h3,h6,p{
+    @include lgDesktop{
+        width: 480px;
+    }
+    @include smDesktop{
+        width: 400px;
+    }
+    @include landscapeMobile{
+        background-color: $primary50;
+        border-radius: 0;
+        width: 100%;
+        align-items: center;
+    }
+
+    h3,h6{
+        color: $primary50;
+        @include landscapeMobile{
+            color: $primary800;
+        }
+    }
+    p{
         color: $primary50;
     }
     h6{
@@ -210,12 +333,18 @@ nav{
         width: fit-content;
         background-color: $primary50;
         border-radius: 16px;
+        @include landscapeMobile{
+            background-color: $primary200;
+        }
     }
     .content{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         border-bottom: 1px solid $primary50;
+        @include landscapeMobile{
+            align-items: center;
+        }
     }
     .btn-primary{
         margin-top: 40px;
@@ -241,11 +370,20 @@ nav{
     flex-direction: column;
     align-items: center;
     background-image: url(./media/homepage-services-bg.png);
+    @include pad{
+        padding: 40px 0;
+        h2{
+            padding: 80px 0;
+        }
+    }
     .container{
         padding: 80px 0;
         display: flex;
         justify-content: center;
         gap:24px;
+        @include pad{
+            padding:0 80px 80px;
+        }
     }
     .serve-item{
         width: 306px;
@@ -255,8 +393,24 @@ nav{
         align-content: center;
         justify-items: center;
         background-image: url(./media/service-item-bg.png);
+        @include lgDesktop{
+            width: 286px;
+            height: 286px;
+        }
+        @include smDesktop{
+            width: 250px;
+            height: 250px;
+        }
+        @include pad{
+            width: 200px;
+            height: 200px;
+        }
+        
         h3{
             color: $primary50;
+            @include pad{
+                font-size: $h4;
+            }
         }
     }
     h3{
@@ -275,11 +429,16 @@ nav{
     .swiper{
         width: calc(100% - 614px);
         margin-bottom: 40px;
+        @include lgDesktop(){
+            width:80%
+        }
+        @include pad{
+            width:90%
+        }
     }
 }
 
   .swiper-slide {
-    text-align: center;
     font-size: 18px;
     background: #fff;
     img{
@@ -308,6 +467,14 @@ nav{
             padding: 4px 12px;
             border-radius: 50px;
             background-color: $primary200;
+        }
+    }
+    @include landscapeMobile{
+        h5{
+            font-size:$h6;
+        }
+        .tags{
+            font-size: 14px;
         }
     }
   }

@@ -29,8 +29,23 @@ h6,.h6,.fs-6{
 
 .container{
     width: 100%;
+    max-width:1920px;
+    @include lgDesktop{
+        max-width: 1440px;
+    }
+    @include smDesktop{
+        max-width: 1200px;
+    }
+    @include pad{
+        max-width: 992px;
+    }
+    @include landscapeMobile{
+        max-width:768px;
+    }
+    @include portraitMobile{
+        max-width:576px;
+    }
 }
-
 
 a{
    text-decoration: none;
