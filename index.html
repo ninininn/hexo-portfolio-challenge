@@ -175,6 +175,35 @@
     <!-- for footer -->
     <div class="footerDiv"></div>
 
+    <!-- swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".my-swiper-pagination",
+                clickable: true,
+                bulletClass: 'my-swiper-pagination-bullet',
+                bulletActiveClass: 'my-swiper-pagination-bullet-active'
+            },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    // pagination: none,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            }
+        });
+    </script>
     <!-- 引入重複block -->
     <script>
         $("header").load("header.html");
