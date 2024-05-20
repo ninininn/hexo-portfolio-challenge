@@ -14,15 +14,16 @@
     <header>
         <nav>
             <a href="#" class="logo"></a>
-            <ul>
+            <ul class="menu">
                 <li><a href="#" class="nav-li active">首頁</a></li>
-                <li><a href="#" class="nav-li ">作品集</a></li>
+                <li><a href="./works.html" class="nav-li ">作品集</a></li>
                 <li><a href="#" class="nav-li ">服務項目</a></li>
                 <li><a href="#" class="nav-li ">部落格</a></li>
                 <li><a href="#" class="nav-li ">聯絡我</a></li>
             </ul>
             <a href="#" class="hamburger"></a>
         </nav>
+        <div id="overlay" class="disable"></div>
     </header>
     <main>
         <div id="hero" class="container">
@@ -47,13 +48,13 @@
                         <h3>星際旅行訂票平台</h3>
                         <h6>悠遊宇宙的夢想，從這裡開始實現</h6>
                         <ul>
-                            <li class="tags">網頁設計</li>
+                            <li class="tags fs-6">網頁設計</li>
                             <li class="tags">響應式設計</li>
                             <li class="tags">Bootstrap</li>
                         </ul>
                     </div>
                     <a href="#" class="btn btn-primary">
-                        <p>完整介紹</p>
+                        <p class="fs-6">完整介紹</p>
                         <img src="./scss/media/decos/google material icon.png" alt="Arrow-forward">
                     </a>
                 </div>
@@ -124,7 +125,7 @@
         <div id="article" class="container">
             <h2>精選文章</h2>
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper centeredSlidesBounds">
                     <div class="swiper-slide article-items">
                         <img src="./scss/media/article-image1.png" alt="art1">
                         <h5>Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上)</h5>
@@ -187,7 +188,7 @@
             <a href="#" class="logo"></a>
             <p class="fs-5">若有數位產品設計和開發相關問題</p>
             <p class="fs-5">歡迎填寫表單，或直接與我聯絡！</p>
-            <h5>service@hexschool.com</h5>
+            <p class="fs-6">service@hexschool.com</p>
         </div>
         <div id="footerLinks">
             <ul>
@@ -225,7 +226,42 @@
                 bulletClass: 'my-swiper-pagination-bullet',
                 bulletActiveClass: 'my-swiper-pagination-bullet-active'
             },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    // pagination: none,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            }
         });
+    </script>
+    <!-- hamburger-menu -->
+    <script>
+        let hamburger = document.querySelector('.hamburger');
+        let menu = document.querySelector('.menu');
+        let overlay = document.getElementById('overlay');
+        let navLi = document.querySelectorAll('.nav-li');
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('nav-active');
+            overlay.classList.toggle("disable")
+        })
+        // close nav by clicking on list items
+        Array.from(navLi).forEach((li) =>
+            li.addEventListener("click", () => {
+                if (menu.classList.contains("nav-active")) {
+                    menu.classList.remove("nav-active");
+                    overlay.classList.toggle("disable")
+                }
+            })
+        );
     </script>
 </body>
 
