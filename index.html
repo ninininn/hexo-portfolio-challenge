@@ -7,24 +7,14 @@
     <title>NOEL</title>
     <link rel="stylesheet" href=".//scss/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo"></a>
-            <ul class="menu">
-                <li><a href="#" class="nav-li active">首頁</a></li>
-                <li><a href="./works.html" class="nav-li ">作品集</a></li>
-                <li><a href="#" class="nav-li ">服務項目</a></li>
-                <li><a href="#" class="nav-li ">部落格</a></li>
-                <li><a href="#" class="nav-li ">聯絡我</a></li>
-            </ul>
-            <a href="#" class="hamburger"></a>
-        </nav>
-        <div id="overlay" class="disable"></div>
-    </header>
+    <!-- for header -->
+    <header></header>
+
     <main>
         <div id="hero" class="container">
             <div class="hero-content">
@@ -181,88 +171,16 @@
             </div>
 
         </div>
-
     </main>
-    <footer class="container">
-        <div class="footer-left">
-            <a href="#" class="logo"></a>
-            <p class="fs-5">若有數位產品設計和開發相關問題</p>
-            <p class="fs-5">歡迎填寫表單，或直接與我聯絡！</p>
-            <p class="fs-6">service@hexschool.com</p>
-        </div>
-        <div id="footerLinks">
-            <ul>
-                <li>
-                    <a href="#" class="footer-links footer-links-main">
-                        <img src="./scss/media/decos/list.png" alt="list">
-                        <span class="fs-5">填寫表單</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="footer-links">
-                        <img src="./scss/media/decos/instagram.png" alt="instagram">
-                        <span class="fs-5">hexschool_demo</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="footer-links">
-                        <img src="./scss/media/decos/facebook.png" alt="facebook">
-                        <span class="fs-5">hexschoolTW</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+    <!-- for footer -->
+    <div class="footerDiv"></div>
 
-    <!-- swiper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 引入重複block -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            pagination: {
-                el: ".my-swiper-pagination",
-                clickable: true,
-                bulletClass: 'my-swiper-pagination-bullet',
-                bulletActiveClass: 'my-swiper-pagination-bullet-active'
-            },
-            breakpoints: {
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    // pagination: none,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-            }
-        });
+        $("header").load("header.html");
+        $(".footerDiv").load("footer.html");
     </script>
-    <!-- hamburger-menu -->
-    <script>
-        let hamburger = document.querySelector('.hamburger');
-        let menu = document.querySelector('.menu');
-        let overlay = document.getElementById('overlay');
-        let navLi = document.querySelectorAll('.nav-li');
-        hamburger.addEventListener('click', () => {
-            menu.classList.toggle('nav-active');
-            overlay.classList.toggle("disable")
-        })
-        // close nav by clicking on list items
-        Array.from(navLi).forEach((li) =>
-            li.addEventListener("click", () => {
-                if (menu.classList.contains("nav-active")) {
-                    menu.classList.remove("nav-active");
-                    overlay.classList.toggle("disable")
-                }
-            })
-        );
-    </script>
+
 </body>
 
 </html>

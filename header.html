@@ -1,0 +1,61 @@
+<nav>
+    <a href="#" class="logo"></a>
+    <ul class="menu">
+        <li><a href="#" class="nav-li active">首頁</a></li>
+        <li><a href="./works.html" class="nav-li ">作品集</a></li>
+        <li><a href="#" class="nav-li ">服務項目</a></li>
+        <li><a href="#" class="nav-li ">部落格</a></li>
+        <li><a href="#" class="nav-li ">聯絡我</a></li>
+    </ul>
+    <a href="#" class="hamburger"></a>
+</nav>
+<div id="overlay" class="disable"></div>
+<!-- swiper.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: ".my-swiper-pagination",
+            clickable: true,
+            bulletClass: 'my-swiper-pagination-bullet',
+            bulletActiveClass: 'my-swiper-pagination-bullet-active'
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                // pagination: none,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+        }
+    });
+</script>
+<!-- hamburger-menu -->
+<script>
+    let hamburger = document.querySelector('.hamburger');
+    let menu = document.querySelector('.menu');
+    let overlay = document.getElementById('overlay');
+    let navLi = document.querySelectorAll('.nav-li');
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('nav-active');
+        overlay.classList.toggle("disable")
+    })
+    // close nav by clicking on list items
+    Array.from(navLi).forEach((li) =>
+        li.addEventListener("click", () => {
+            if (menu.classList.contains("nav-active")) {
+                menu.classList.remove("nav-active");
+                overlay.classList.toggle("disable")
+            }
+        })
+    );
+</script>
