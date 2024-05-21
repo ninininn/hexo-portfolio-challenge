@@ -1,170 +1,3 @@
-// rwd mixins ====================================================
-@mixin lgDesktop{
-    @media(max-width:1440px){
-        @content
-    }
-};
-@mixin smDesktop{
-    @media(max-width:1200px){
-        @content
-    }
-};
-
-@mixin pad{
-    @media(max-width:992px){
-        @content
-    }
-};
-
-@mixin landscapeMobile{
-    @media(max-width:768px){
-        @content
-    }
-};
-@mixin portraitMobile{
-    @media(max-width:576px){
-        @content
-    }
-};
-@mixin miniDevice{
-    @media(max-width:320px){
-        @content
-    }
-};
-
-//global-setting ===================================================
-
-h2{
-    color: $primary700;
-    padding: 120px 0 80px 0;
-    text-align: center;
-    &::before{
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        margin-right:16px;
-        width: 100px;
-        height: 6px;
-        background-image: url(./media/decos/title\ deco-left-lg.png);
-        @include portraitMobile{
-            max-width: 40%;
-        }
-    }
-    &::after{
-        content:'';
-        display: inline-block;
-        vertical-align: middle;
-        margin-left:16px;
-        width: 100px;
-        height: 6px;
-        background-image: url(./media/decos/title\ deco-right-lg.png);
-        @include portraitMobile{
-            max-width: 40%;
-        }
-    }
-    @include smDesktop(){
-        padding: 80px 0 ;
-    }
-    @include pad{
-        padding: 40px 0 ;
-    }
-    @include landscapeMobile{
-        font-size:$h3;
-    }
-}
-
-.disable{
-    display: none;
-}
-.active{
-    display: block;
-}
-
-//nav-bar ==========================================================
-
-nav{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 32px 0;
-    justify-content: space-around;
-    border-bottom: 1px solid $primary200;
-    @include landscapeMobile{
-        padding: 16px 0 ;
-        justify-content: space-between;
-        position: relative;
-    }
-    @include portraitMobile{
-        padding:12px;
-    }
-    ul{
-        display: flex;
-        gap: 40px;
-        &.menu{
-            @include landscapeMobile{
-                flex-direction: column;
-                position: absolute;
-                background-color: #fff;
-                width: 100%;
-                left: 0;
-                top: 78px;
-                align-items: center;
-                gap: 24px;
-                padding: 40px 0;
-                border-top: 1px solid $primary200;
-                z-index: 3;
-                opacity: 0;
-            }
-        }
-    }
-    .nav-li.active{
-        font-weight: 700;
-    }
-    .logo{
-        width: 120px;
-        height: 54px;
-        background-image: url(./media/logo.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        left: 312px;
-        @include smDesktop{
-            left:200px;
-        }
-        @include pad{
-            left:80px;
-        }
-        @include landscapeMobile{
-            position: static;
-        }
-    }
-    .hamburger{
-        display: none;
-        @include landscapeMobile{
-            display: block;
-            width: 40px;
-            height: 40px;
-            background-image: url(./media/decos/google\ material\ icon-2.png);
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-    }
-};
-
-.menu.nav-active{
-    opacity: 1;
-    transition:1s opacity;
-}
-
-#overlay{
-    @include landscapeMobile{
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        z-index: 2;
-    }
-}
 
 // hero-part ===================================================
 #hero{
@@ -253,10 +86,6 @@ nav{
         background-image:url(./media/decos/youtube.png);
     }
 }
-
-
-
-
 
 // works-part=======================================================
 
@@ -510,24 +339,21 @@ nav{
         @include pad{
             width:90%
         }
-        @include landscapeMobile{
-            
-        }
     }
     .swiper-wrapper{
         @include landscapeMobile{
             display:flex;
             flex-direction:column;
-            // align-items: center;
             gap: 20px;
         }
     }
 }
 
   .swiper-slide {
+    width: 100%;
     font-size: 18px;
     background: #fff;
-    
+    cursor: pointer;
     img{
         border-radius: 8px;
         display: block;
@@ -570,6 +396,7 @@ nav{
   }
 
     //自訂pagination樣式=================
+    
   .my-swiper-pagination-bullet{
     cursor: pointer;
     width: 8px;
@@ -579,6 +406,9 @@ nav{
     background: $primary900;
     opacity: 0.2;
     margin:0 4px;
+    @include landscapeMobile{
+            display: none;
+    }
 }
   
 .my-swiper-pagination-bullet-active {
@@ -592,58 +422,3 @@ nav{
     transform: translate3d(0, 0, 0);
 }
 
-//  footer-part ===================================================
-
-footer{
-    background-image: url(./media/footer-bg-lg.png);
-    padding: 80px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    @include landscapeMobile{
-        flex-direction: column;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 40px 0;
-    }
-    .footer-left{
-        display:flex;
-        flex-direction: column;
-        @include landscapeMobile{
-            align-items: center;
-            padding-bottom: 40px;
-        }
-        .fs-6{
-            color: $primary500;
-        }
-    }
-    .logo{
-        width: 120px;
-        height: 54px;
-        background-image: url(./media/logo.png);
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    ul{
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
-}
-.footer-links{
-    width: 306px;
-    height: 72px;
-    border-radius: 8px;
-    border: 1px solid $primary400;
-    padding: 8px 24px;
-    display: flex;
-    align-items: center;
-    color: $primary700;
-    &.footer-links-main{
-        background-color: $primary900;
-        border: none;
-        color: $primary50;
-        font-weight: 700;
-    }
-
-}

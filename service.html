@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="./scss/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+
+<body>
+    <!-- for header -->
+    <header></header>
+
+    <main data-page="service">
+        <div id="services">
+            <h2>服務項目</h2>
+            <div class="container">
+                <div class="serve-item">
+                    <img src="./scss/media/decos/service-item-visual.png" alt="design">
+                    <h3>平面設計</h3>
+                </div>
+                <div class="serve-item">
+                    <img src="./scss/media/decos/service-item-ui.png" alt="ui">
+                    <h3>UI 設計</h3>
+                </div>
+                <div class="serve-item">
+                    <img src="./scss/media/decos/service-item-html&css.png" alt="web">
+                    <h3>切版服務</h3>
+                </div>
+                <div class="serve-item">
+                    <img src="./scss/media/decos/service-item-front-end.png" alt="front-end">
+                    <h3>前端開發</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- for footer -->
+    <div class="footerDiv"></div>
+    <!-- 引入重複block -->
+    <script>
+        $("header").load("header.html");
+        $(".footerDiv").load("footer.html");
+
+
+    </script>
+</body>
+
+</html>

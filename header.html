@@ -1,11 +1,11 @@
 <nav>
     <a href="#" class="logo"></a>
     <ul class="menu">
-        <li><a href="#" class="nav-li" data-page="home">首頁</a></li>
-        <li><a href=" ./works.html" class="nav-li " data-page="work">作品集</a></li>
-        <li><a href=" #" class="nav-li" data-page="service-item-html">服務項目</a></li>
-        <li><a href=" #" class="nav-li" data-page="blog">部落格</a></li>
-        <li><a href=" #" class="nav-li" data-page="contact">聯絡我</a></li>
+        <li><a href="./index.html" class="nav-li" data-page="home">首頁</a></li>
+        <li><a href=" ./work.html" class="nav-li " data-page="work">作品集</a></li>
+        <li><a href="./service.html" class="nav-li" data-page="service">服務項目</a></li>
+        <li><a href="./blog.html" class="nav-li" data-page="blog">部落格</a></li>
+        <li><a href="" class="nav-li" data-page="contact">聯絡我</a></li>
     </ul>
     <a href=" #" class="hamburger"></a>
 </nav>
@@ -31,6 +31,7 @@
         })
     );
 </script>
+<!-- 切換nav-link active狀態 -->
 <script>
     let page = document.querySelectorAll('.menu .nav-li');
     let mainPage = document.querySelector("main").dataset.page
@@ -43,5 +44,4 @@
         }
     }
     checkPage();
-
 </script>

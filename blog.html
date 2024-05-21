@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href=".//scss/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+
+<body>
+    <!-- for header -->
+    <header></header>
+
+    <!-- mainBlock -->
+    <main data-page="blog"></main>
+
+    <!-- for footer -->
+    <div class="footerDiv"></div>
+    <!-- 引入重複block -->
+    <script>
+        $("header").load("header.html");
+        $(".footerDiv").load("footer.html");
+    </script>
+</body>
+
+</html>

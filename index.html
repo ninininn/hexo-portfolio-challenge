@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOEL</title>
-    <link rel="stylesheet" href=".//scss/all.css">
+    <link rel="stylesheet" href="./scss/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 
 <body>
     <!-- for header -->
-    <header></header>
+    <header id="test"></header>
 
+    <!-- for main -->
     <main data-page="home">
         <div id="hero" class="container">
             <div class="hero-content">
@@ -114,7 +115,7 @@
         <div id="article" class="container">
             <h2>精選文章</h2>
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper centeredSlidesBounds">
+                <div class="swiper-wrapper">
                     <div class="swiper-slide article-items">
                         <img src="./scss/media/article-image1.png" alt="art1">
                         <h5>Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上)</h5>
@@ -171,13 +172,17 @@
 
         </div>
     </main>
+
     <!-- for footer -->
     <div class="footerDiv"></div>
 
     <!-- swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+
         var swiper = new Swiper(".mySwiper", {
+            resizeObserver: true,
+            // observer: true,
             slidesPerView: 3,
             spaceBetween: 30,
             pagination: {
@@ -194,14 +199,22 @@
                 992: {
                     slidesPerView: 3,
                     spaceBetween: 20,
-                    // pagination: none,
                 },
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                 },
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    initialSlide: 0,
+                    // allowSlideNext: false,
+                    // allowTouchMove: false,
+                    // enabled: true
+                }
             }
         });
+
     </script>
     <!-- 引入重複block -->
     <script>
