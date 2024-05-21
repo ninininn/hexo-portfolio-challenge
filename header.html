@@ -1,13 +1,13 @@
 <nav>
     <a href="#" class="logo"></a>
     <ul class="menu">
-        <li><a href="#" class="nav-li active">首頁</a></li>
-        <li><a href="./works.html" class="nav-li ">作品集</a></li>
-        <li><a href="#" class="nav-li ">服務項目</a></li>
-        <li><a href="#" class="nav-li ">部落格</a></li>
-        <li><a href="#" class="nav-li ">聯絡我</a></li>
+        <li><a href="#" class="nav-li" data-page="home">首頁</a></li>
+        <li><a href=" ./works.html" class="nav-li " data-page="work">作品集</a></li>
+        <li><a href=" #" class="nav-li" data-page="service-item-html">服務項目</a></li>
+        <li><a href=" #" class="nav-li" data-page="blog">部落格</a></li>
+        <li><a href=" #" class="nav-li" data-page="contact">聯絡我</a></li>
     </ul>
-    <a href="#" class="hamburger"></a>
+    <a href=" #" class="hamburger"></a>
 </nav>
 <div id="overlay" class="disable"></div>
 
@@ -30,4 +30,18 @@
             }
         })
     );
+</script>
+<script>
+    let page = document.querySelectorAll('.menu .nav-li');
+    let mainPage = document.querySelector("main").dataset.page
+
+    let checkPage = () => {
+        for (let i = 0; i < page.length; i++) {
+            if (page[i].dataset.page === mainPage) {
+                page[i].classList.add("active");
+            }
+        }
+    }
+    checkPage();
+
 </script>
