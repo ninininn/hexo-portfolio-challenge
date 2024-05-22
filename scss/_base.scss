@@ -43,26 +43,37 @@
 
 h1,.h1{
     font-size: $h1;
+    line-height: calc(48 / 40);
 }
 h2,.h2,.fs-2{
     font-size: $h2;
+    line-height: calc(38.4 / 32);
 }
 h3,.h3,.fs-3{
     font-size: $h3;
+    line-height: calc(33.6 / 28);
+
 }
 h4,.h4,.fs-4{
     font-size: $h4;
+    line-height: calc(28.8 / 24);
+
 }
 h5,.h5,.fs-5{
     font-size: $h5;
+    line-height: calc(24 / 20);
+
 }
 h6,.h6,.fs-6{
     font-size: $h6;
+    line-height: calc(24 / 16);
+
 }
 
 .container{
     width: 100%;
     max-width:1920px;
+    margin: auto;
     @include lgDesktop{
         max-width: 1440px;
     }

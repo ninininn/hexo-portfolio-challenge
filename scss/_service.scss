@@ -39,6 +39,27 @@ main[data-page=service] #services{
     h2{
         color:$primary50
     }
+    @include pad{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        .progress-items{
+            width:80%;
+            flex-direction: column;
+            gap: 8px;
+            &>div{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+
+            }
+        }
+        h3{
+            font-size: $h4;
+        }
+    }
+
 }
 #service-price{
     padding-bottom: 120px;
@@ -68,7 +89,105 @@ main[data-page=service] #services{
             };
         }
     }
+
+    @include smDesktop{
+        .price-items{
+            h3{
+                font-size:$h4;
+            }
+            p{
+                font-size: $h5;
+            }
+        }
+    }
+    @include pad{
+        .container{
+            flex-direction: column;
+            align-items: center;
+        }
+        .price-items{
+            width: 70%;
+        }
+    }
 }
 #customer-examples{
     background-color: $primary100;
+    padding-bottom: 120px;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 80px 24px ;
+        justify-content: center;
+        align-items: center;
+    }
+    .examples{
+        max-width: 636px;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        img{
+            border-radius: 8px;
+        }
+        h3{
+            color: $primary700;
+            margin:16px 0 8px 0;
+        }
+        p{
+            color: $primary500;
+            margin-bottom: 24px;
+        }
+        .tag-items{
+            display: flex;
+            gap:16px;
+            .tags{
+                padding: 4px 12px;
+                background-color: $primary200;
+                border-radius: 16px;
+            }
+        }
+    }
+    @include landscapeMobile{
+        .examples{
+            width: calc(100% - 24px);
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+#questions{
+    padding-bottom: 120px;
+    h4{
+        color: $primary700;
+    }
+    .fs-5{
+        color: $primary600;
+    }
+    .container{
+        max-width: 1076px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    .qa-items{
+        width: 526px;
+        border-radius: 8px;
+        border: 1px solid $primary300;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        flex-shrink: 1;
+    }
+    @include smDesktop{
+        .container{
+            grid-template-columns:100%;
+            place-items: center;
+        }
+    }
+    @include landscapeMobile{
+        .qa-items{
+            width: calc(100% - 40px);
+        }
+    }
 }
