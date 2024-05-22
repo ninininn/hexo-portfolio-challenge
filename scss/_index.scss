@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
 // hero-part ===================================================
 #hero{
     display: flex;
@@ -8,7 +10,6 @@
     gap:24px ;
     @include landscapeMobile{
         flex-direction: column-reverse;
-        
     }
     .hero-content{
         padding-left:312px;
