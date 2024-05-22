@@ -228,10 +228,29 @@ nav .hamburger {
     background-position: center;
   }
 }
+@media (max-width: 768px) {
+  nav .close {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(./media/decos/google\ material\ icon-3.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 
+@keyframes fadeIn {
+  0% {
+    filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
 .menu.nav-active {
-  opacity: 1;
-  transition: 1s opacity;
+  animation: fadeIn 0.3s cubic-bezier(0.55, 0.09, 0.68, 0.53) both;
 }
 
 @media (max-width: 768px) {
