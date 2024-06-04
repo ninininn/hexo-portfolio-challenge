@@ -6,13 +6,17 @@
     }
     .more-text{
         @include pad{
-            top: -20px;
+            top: 70%;
         }
+        font-size: 16px;
+        font-weight: normal;
         display:block;
         color: $primary500;
         text-align: center;
-        position: relative;
-        top: -60px;
+        position: absolute;
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%,-50%);
     }
     .container{
         max-width: 1296px;
@@ -62,9 +66,11 @@
             gap: 16px;
         }
         .article-text{
-            text-overflow: ellipsis; 
-            overflow: hidden; 
-            white-space: nowrap;
+            @include portraitMobile{
+                text-overflow: ellipsis; 
+                overflow: hidden; 
+                white-space: nowrap;
+            }
         }
     }
     .article-items{
@@ -89,16 +95,15 @@
         }
     }
     #article-menu{
+        border-radius: 8px;
+        max-width: 306px;
+        background-color:$primary100;
         @include portraitMobile{
             max-width: 100vw;
-            // width:auto;
             position: sticky;
-            top: 0px;
+            top: 78px;
             white-space: nowrap;
         }
-        max-width: 306px;
-        // width: 30%;
-        background-color:$primary100;
         ul{
             @include pad{
             padding: 40px;
@@ -106,9 +111,10 @@
             @include portraitMobile{
                 flex-direction: row;
                 padding: 20px 12px;
-                overflow-x: scroll;
-                overscroll-behavior: contain;
-                scroll-padding: 12px;
+                overflow-x: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                  }
             }
             padding: 80px;
             display: flex;
@@ -116,7 +122,9 @@
             gap: 32px;
             .active-link{
                 color: $primary800;
-                border-bottom: 2px solid $primary800;
+                text-decoration: underline;
+                text-underline-offset: 8px;
+                // border-bottom: 2px solid $primary800;
             }
             p{
                 text-wrap: nowrap;
