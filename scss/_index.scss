@@ -340,12 +340,16 @@
         @include pad{
             width:90%
         }
+        @include landscapeMobile{
+            overflow-x: hidden;
+        }
     }
     .swiper-wrapper{
         @include landscapeMobile{
             display:flex;
             flex-direction:column;
             gap: 20px;
+            overflow-x: hidden;
         }
     }
 }

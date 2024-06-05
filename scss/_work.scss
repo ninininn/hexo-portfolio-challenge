@@ -157,10 +157,21 @@
     .open-dialog{
         margin: auto;
         max-width: 1076px;
+        width: 90%;
         border-radius: 16px;
         border: none;
+        position: relative;
         &::backdrop{
             background-color: rgba(0,0,0,0.8);
+        }
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        @include pad{
+            max-width:800px;
+        }
+        @include portraitMobile{
+            max-width:calc(100% - 24px);
         }
         #dialog-close-btn{
             width: 32px;
@@ -172,6 +183,12 @@
             background-repeat: no-repeat;
             background-size: contain;
             cursor: pointer;
+            position: absolute;
+            right: 40px;
+            top: 32px;
+            @include landscapeMobile{
+                right: 32px;
+            }
         }
         h5{
             color: $primary700;
@@ -208,11 +225,54 @@
                 max-width: 532px;
                 color: $primary800;
             }
+            @include landscapeMobile{
+                flex-direction: column;
+                gap: 24px;
+            }
         }
         .about{
             padding-left: 24px;
             color: $primary600;
             border-left: 1px solid $primary400;
+            @include landscapeMobile{
+                border-left: 0;
+                border-top: 1px solid $primary400;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                padding-top: 24px;
+                display: none;
+            }
+            &.phone{
+                display: none;
+                text-align: center;
+                @include landscapeMobile{
+                    display: flex;
+                }
+                .wrap{
+                    display: block;
+                }
+            }
+        }
+        .main-log{
+            margin: 80px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 56px;
+        }
+        .top-log,.bottom-log{
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            text-align: center;
+        }
+        .modal-img{
+            max-width: 720px;
+            width: 90%;
+            border-radius: 20px;
         }
     }
 }
