@@ -1,429 +1,432 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
 
 // hero-part ===================================================
-#hero{
+#hero {
+  display: flex;
+  align-items: center;
+  height: 800px;
+  justify-content: space-between;
+  gap: 24px;
+  @include landscapeMobile {
+    flex-direction: column-reverse;
+  }
+  .hero-content {
+    padding-left: 312px;
     display: flex;
-    align-items: center;
-    height: 800px;
-    justify-content:space-between;
-    gap:24px ;
-    @include landscapeMobile{
-        flex-direction: column-reverse;
+    flex-direction: column;
+    gap: 24px;
+    .fs-6 {
+      color: $primary400;
     }
-    .hero-content{
-        padding-left:312px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        .fs-6{
-            color: $primary400;
-        }
-        p{
-            @include landscapeMobile{
-               font-size:$h4;
-            }
-        }
-        h1{
-            @include landscapeMobile{
-                color:$primary700;
-            }
-        }
-        span{
-            position: relative;
-            z-index: -1;
-            @include landscapeMobile{
-                display: inline-block;
-            }
-            &::after{
-                content:'';
-                display: inline-block;
-                width: 120px;
-                height: 8px;
-                background-image: url(./media/decos/mark.png);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-            }
-        }
-        @include lgDesktop{
-            padding-left: 112px;
-        }
-        @include smDesktop{
-            padding-left: 82px;
-        }
-        @include landscapeMobile{
-            text-align: center;
-            padding: 0 50px;
-        }
+    p {
+      @include landscapeMobile {
+        font-size: $h4;
+      }
     }
-    .hero-img{
-        width: 60%;
-        height: 100%;
-        background-image: url(./media/hero-lg.png);
-        background-repeat: no-repeat;
+    h1 {
+      @include landscapeMobile {
+        color: $primary700;
+      }
+    }
+    span {
+      position: relative;
+      z-index: -1;
+      @include landscapeMobile {
+        display: inline-block;
+      }
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 120px;
+        height: 8px;
+        background-image: url(./media/decos/mark.png);
         background-position: center;
-        @include landscapeMobile{
-            width: 100%;
-            height:50%;
-        }
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
     }
+    @include lgDesktop {
+      padding-left: 112px;
+    }
+    @include smDesktop {
+      padding-left: 82px;
+    }
+    @include landscapeMobile {
+      text-align: center;
+      padding: 0 50px;
+    }
+  }
+  .hero-img {
+    width: 60%;
+    height: 100%;
+    background-image: url(./media/hero-lg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    @include landscapeMobile {
+      width: 100%;
+      height: 50%;
+    }
+  }
 }
 
-
-.media{
-    width:56px ;
-    height: 56px;
-    &.media-ig{
-        background-image:url(./media/decos/instagram.png);
-    }
-    &.media-fb{
-        background-image:url(./media/decos/facebook.png);
-    }
-    &.media-ytb{
-        background-image:url(./media/decos/youtube.png);
-    }
+.media {
+  width: 56px;
+  height: 56px;
+  &.media-ig {
+    background-image: url(./media/decos/instagram.png);
+  }
+  &.media-fb {
+    background-image: url(./media/decos/facebook.png);
+  }
+  &.media-ytb {
+    background-image: url(./media/decos/youtube.png);
+  }
 }
 
 // works-part=======================================================
 
-#works{
-    .container{    
-        height: 800px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        @include smDesktop{
-            height: 680px;
-        }
-        @include landscapeMobile{
-            width: 100%;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        &:nth-child(2){
-            padding: 0 3rem;
-            background-image: url(./media/homepage-work1-bg.png);
-            @include landscapeMobile{
-                padding: 0;
-            }
-            .product{
-                align-self: flex-end;
-                @include lgDesktop{
-                    height: 75%;
-                }
-                @include pad{
-                    height: 65%;
-                }
-                @include landscapeMobile{
-                    height: 50%;
-                }
-            }
-        }
-        &:nth-child(3){
-            padding: 0 3rem;
-            background-image: url(./media/homepage-work2-lg.png);
-            flex-direction: row-reverse;
-            backdrop-filter: brightness(50%);
-            @include lgDesktop{
-                justify-content: space-between;
-            }
-            @include landscapeMobile{
-                padding: 0;
-                flex-direction: column;
-            }
-            &::after { //遮罩
-                position: absolute;
-                left: 0;
-                content: '';
-                width: 50%;height: 100%;
-                background-color: rgba(#000,.5);
-                z-index: -1;
-                @include smDesktop{
-                    width: 60%
-                }
-                @include landscapeMobile{
-                    display: none;
-                }
-              }
-        }
-        &:nth-child(4){
-            padding: 0 3rem;
-            backdrop-filter: brightness(50%);
-            background-image:  url(./media/homepage-work3-bg.png);
-            @include landscapeMobile{
-                padding: 0;
-            }
-            &::after {//遮罩
-                position: absolute;
-                content: '';
-                width: 100%;height: 100%;
-                background-color: rgba(#000,.5);
-                z-index: -1;
-            }
-            .product{
-                @include smDesktop{
-                    height:50%;
-                }
-                @include smDesktop{
-                    height:40%;
-                }
-                @include landscapeMobile{
-                    padding-top: 40px;
-                }
-            }
-        }    
+#works {
+  .container {
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    @include smDesktop {
+      height: 680px;
     }
- }
+    @include landscapeMobile {
+      width: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &:nth-child(2) {
+      padding: 0 3rem;
+      background-image: url(./media/homepage-work1-bg.png);
+      @include landscapeMobile {
+        padding: 0;
+      }
+      .product {
+        align-self: flex-end;
+        @include lgDesktop {
+          height: 75%;
+        }
+        @include pad {
+          height: 65%;
+        }
+        @include landscapeMobile {
+          height: 50%;
+        }
+      }
+    }
+    &:nth-child(3) {
+      padding: 0 3rem;
+      background-image: url(./media/homepage-work2-lg.png);
+      flex-direction: row-reverse;
+      backdrop-filter: brightness(50%);
+      @include lgDesktop {
+        justify-content: space-between;
+      }
+      @include landscapeMobile {
+        padding: 0;
+        flex-direction: column;
+      }
+      &::after {
+        //遮罩
+        position: absolute;
+        left: 0;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background-color: rgba(#000, 0.5);
+        z-index: -1;
+        @include smDesktop {
+          width: 60%;
+        }
+        @include landscapeMobile {
+          display: none;
+        }
+      }
+    }
+    &:nth-child(4) {
+      padding: 0 3rem;
+      backdrop-filter: brightness(50%);
+      background-image: url(./media/homepage-work3-bg.png);
+      @include landscapeMobile {
+        padding: 0;
+      }
+      &::after {
+        //遮罩
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, 0.5);
+        z-index: -1;
+      }
+      .product {
+        @include smDesktop {
+          height: 50%;
+        }
+        @include smDesktop {
+          height: 40%;
+        }
+        @include landscapeMobile {
+          padding-top: 40px;
+        }
+      }
+    }
+  }
+}
 
- .works{
-    width: 526px;
-    background-color: rgba(225,225,225,0.1);
-    border-radius: 24px;
+.works {
+  width: 526px;
+  background-color: rgba(225, 225, 225, 0.1);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 24px;
+  backdrop-filter: blur(5px);
+  @include lgDesktop {
+    width: 480px;
+  }
+  @include smDesktop {
+    width: 400px;
+  }
+  @include landscapeMobile {
+    background-color: $primary50;
+    border-radius: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  h3 {
+    color: $primary50;
+    @include landscapeMobile {
+      color: $primary800;
+    }
+  }
+  p {
+    color: $primary50;
+  }
+  h6 {
+    color: $primary50;
+    padding: 8px 0 24px 0;
+    font-weight: normal;
+    @include landscapeMobile {
+      color: $primary700;
+    }
+  }
+  ul {
+    padding-bottom: 40px;
+    display: flex;
+    gap: 16px;
+    @include landscapeMobile {
+      padding-bottom: 0;
+      color: $primary800;
+    }
+  }
+  .tags {
+    padding: 4px 12px;
+    width: fit-content;
+    background-color: $primary50;
+    border-radius: 16px;
+    @include landscapeMobile {
+      background-color: $primary200;
+    }
+  }
+  .content {
     display: flex;
     flex-direction: column;
-    padding: 40px 24px;
-    backdrop-filter: blur(5px);
-    @include lgDesktop{
-        width: 480px;
+    align-items: flex-start;
+    border-bottom: 1px solid $primary50;
+    @include landscapeMobile {
+      align-items: center;
     }
-    @include smDesktop{
-        width: 400px;
-    }
-    @include landscapeMobile{
-        background-color: $primary50;
-        border-radius: 0;
-        width: 100%;
-        align-items: center;
-    }
+  }
+  .btn-primary {
+    margin-top: 40px;
+    align-self: center;
+  }
+}
 
-    h3{
-        color: $primary50;
-        @include landscapeMobile{
-            color: $primary800;
-        }
-    }
-    p{
-        color: $primary50;
-    }
-    h6{
-        color: $primary50;
-        padding: 8px 0 24px 0 ;
-        font-weight: normal;
-        @include landscapeMobile{
-            color: $primary700;
-        }
-    }
-    ul{
-        padding-bottom: 40px;
-        display:flex;
-        gap: 16px;
-        @include landscapeMobile{
-            padding-bottom: 0;
-            color:$primary800;
-        }
-    }
-    .tags{
-        padding: 4px 12px;
-        width: fit-content;
-        background-color: $primary50;
-        border-radius: 16px;
-        @include landscapeMobile{
-            background-color: $primary200;
-        }
-    }
-    .content{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom: 1px solid $primary50;
-        @include landscapeMobile{
-            align-items: center;
-        }
-    }
-    .btn-primary{
-        margin-top: 40px;
-        align-self: center;
-    }
- }
-
- .btn{
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 16px 32px;
-    @include landscapeMobile{
-        padding:8px 16px;
-    }
-    &.btn-primary{
-        width: fit-content;
-        display: flex;
-        background-color: $primary900;
-    }
+.btn {
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 16px 32px;
+  @include landscapeMobile {
+    padding: 8px 16px;
+  }
+  &.btn-primary {
+    width: fit-content;
+    display: flex;
+    background-color: $primary900;
+  }
 }
 // service-part ===================================================
 
-#services{
-    padding: 120px 0;
+#services {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(./media/homepage-services-bg.png);
+  @include pad {
+    padding: 40px 0;
+    h2 {
+      padding: 80px 0;
+    }
+  }
+  .container {
+    padding: 80px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url(./media/homepage-services-bg.png);
-    @include pad{
-        padding: 40px 0;
-        h2{
-            padding: 80px 0;
-        }
+    justify-content: center;
+    gap: 24px;
+    @include pad {
+      padding: 0 80px 80px;
     }
-    .container{
-        padding: 80px 0;
-        display: flex;
-        justify-content: center;
-        gap:24px;
-        @include pad{
-            padding:0 80px 80px;
-        }
-        @include landscapeMobile{
-            flex-direction: column;
-            align-items: center;
-        }
+    @include landscapeMobile {
+      flex-direction: column;
+      align-items: center;
     }
-    .serve-item{
-        width: 306px;
-        height: 306px;
-        border-radius: 16px;
-        display: grid;
-        align-content: center;
-        justify-items: center;
-        background-image: url(./media/service-item-bg.png);
-        @include lgDesktop{
-            width: 286px;
-            height: 286px;
-        }
-        @include smDesktop{
-            width: 250px;
-            height: 250px;
-        }
-        @include pad{
-            width: 200px;
-            height: 200px;
-        }
+  }
+  .serve-item {
+    width: 306px;
+    height: 306px;
+    border-radius: 16px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    background-image: url(./media/service-item-bg.png);
+    @include lgDesktop {
+      width: 286px;
+      height: 286px;
+    }
+    @include smDesktop {
+      width: 250px;
+      height: 250px;
+    }
+    @include pad {
+      width: 200px;
+      height: 200px;
+    }
 
-        h3{
-            color: $primary50;
-            @include pad{
-                font-size: $h4;
-            }
-        }
+    h3 {
+      color: $primary50;
+      @include pad {
+        font-size: $h4;
+      }
     }
-    h3{
-        color: $primary700;
+  }
+  h3 {
+    color: $primary700;
+  }
+  a {
+    margin-top: 40px;
+    p {
+      color: $primary50;
     }
-    a{
-        margin-top: 40px;
-        p{
-            color: $primary50;
-        }
-    }
+  }
 }
 //articles-part ===================================
 
-#article{
-    .swiper{
-        width: calc(100% - 614px);
-        margin-bottom: 40px;
-        @include lgDesktop(){
-            width:80%
-        }
-        @include pad{
-            width:90%
-        }
-        @include landscapeMobile{
-            overflow-x: hidden;
-        }
+#article {
+  .swiper {
+    width: calc(100% - 614px);
+    margin-bottom: 40px;
+    @include lgDesktop() {
+      width: 80%;
     }
-    .swiper-wrapper{
-        @include landscapeMobile{
-            display:flex;
-            flex-direction:column;
-            gap: 20px;
-            overflow-x: hidden;
-        }
+    @include pad {
+      width: 90%;
     }
+    @include landscapeMobile {
+      overflow-x: hidden;
+      /*讓swiper禁止滑動*/
+      pointer-events: none;
+    }
+  }
+  .swiper-wrapper {
+    @include landscapeMobile {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-x: hidden;
+    }
+  }
 }
 
-  .swiper-slide {
+.swiper-slide {
+  width: 100%;
+  font-size: 18px;
+  background: #fff;
+  cursor: pointer;
+  img {
+    border-radius: 8px;
+    display: block;
     width: 100%;
-    font-size: 18px;
-    background: #fff;
-    cursor: pointer;
-    img{
-        border-radius: 8px;
-        display: block;
-        width: 100%;
-        object-fit: cover;
-    }
+    object-fit: cover;
   }
-
-  .article-items{
-    @include landscapeMobile{
-        min-width:100%;
-        margin:0;
-    }
-    h5{
-        text-align: left;
-        padding: 16px 0;
-    }
-    ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .tags{
-        width: fit-content;
-        color: $primary700;
-        &:first-child{
-            padding: 4px 12px;
-            border-radius: 50px;
-            background-color: $primary200;
-        }
-    }
-    @include landscapeMobile{
-        h5{
-            font-size:$h6;
-        }
-        .tags{
-            font-size: 14px;
-        }
-    }
-  }
-
-    //自訂pagination樣式=================
-    
-  .my-swiper-pagination-bullet{
-    cursor: pointer;
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius:50%;
-    background: $primary900;
-    opacity: 0.2;
-    margin:0 4px;
-    @include landscapeMobile{
-            display: none;
-    }
 }
-  
+
+.article-items {
+  @include landscapeMobile {
+    min-width: 100%;
+    margin: 0;
+  }
+  h5 {
+    text-align: left;
+    padding: 16px 0;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tags {
+    width: fit-content;
+    color: $primary700;
+    &:first-child {
+      padding: 4px 12px;
+      border-radius: 50px;
+      background-color: $primary200;
+    }
+  }
+  @include landscapeMobile {
+    h5 {
+      font-size: $h6;
+    }
+    .tags {
+      font-size: 14px;
+    }
+  }
+}
+
+//自訂pagination樣式=================
+
+.my-swiper-pagination-bullet {
+  cursor: pointer;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  background: $primary900;
+  opacity: 0.2;
+  margin: 0 4px;
+  @include landscapeMobile {
+    display: none;
+  }
+}
+
 .my-swiper-pagination-bullet-active {
-    opacity: 1;
-    background: $primary900;
+  opacity: 1;
+  background: $primary900;
 }
-.my-swiper-pagination{
-    margin-top: 40px;
-    text-align: center;
-    transition: .3s opacity;
-    transform: translate3d(0, 0, 0);
+.my-swiper-pagination {
+  margin-top: 40px;
+  text-align: center;
+  transition: 0.3s opacity;
+  transform: translate3d(0, 0, 0);
 }
-

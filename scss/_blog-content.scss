@@ -1,0 +1,122 @@
+#blog-content {
+  margin-top: 198px;
+  @include landscapeMobile {
+    margin-top: 80px;
+  }
+  .container {
+    max-width: 1296px;
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 120px;
+    gap: 24px;
+    justify-content: center;
+    padding: 16px;
+    @include pad {
+      padding: 0 24px;
+    }
+    @include portraitMobile {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding: 0;
+      margin-top: 40px;
+      #article-menu {
+        order: -1;
+        position: sticky;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.main-article-block {
+  width: 100%;
+  @include pad {
+    padding: 24px;
+  }
+  .about {
+    display: flex;
+    gap: 8px;
+    @include pad {
+      justify-content: space-between;
+    }
+    .fs-6 {
+      color: $primary400;
+      font-weight: 400;
+      &:first-child::after {
+        content: "/";
+        margin-left: 8px;
+        @include pad {
+          content: "";
+        }
+      }
+    }
+  }
+  .container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .article-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+    margin-bottom: 64px;
+    h3 {
+      color: $primary700;
+      text-align: center;
+    }
+    p {
+      font-size: 24px;
+      color: $primary700;
+    }
+  }
+  .contents {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    line-height: 30px;
+  }
+  .fs-5 {
+    color: $primary700;
+  }
+  .img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    @include landscapeMobile {
+      grid-template-columns: 1fr;
+    }
+    .img-items {
+      width: 100%;
+    }
+    figcaption {
+      text-align: center;
+    }
+  }
+}
+.relative-articles {
+  display: flex;
+  max-width: 1296px;
+  width: 90%;
+  margin: 0 auto 80px;
+  border-top: 1px solid $primary200;
+  flex-direction: column;
+  padding-top: 80px;
+  gap: 40px;
+  .swiper-wrapper {
+    max-width: 100%;
+    @include landscapeMobile {
+      flex-direction: column;
+    }
+    gap: 24px;
+    .article-items {
+      max-width: 416px;
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
+  }
+}
